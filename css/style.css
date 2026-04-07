@@ -1,0 +1,80 @@
+body {
+    background-color: #dedede;
+    margin: 0;
+    padding: 10px;
+}
+
+h1 {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 32px;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+}
+
+p {
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+/* 默认移动端视图：通常建议 div 占据较大宽度（例如 90% 以上）来实现垂直排列 */
+div {
+    display: block;      /* 块级显示，独占一行 */
+    width: 90%;          /* 移动端宽度较宽 */
+    margin: 10px auto;   /* 居中并保持间距 */
+    padding: 5px;
+    border: 2px solid #333; /* 增加边框方便观察布局 */
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+div img {
+    width: 100%;         /* 图片充满容器 */
+    height: auto;        /* 保持比例 */
+    display: block;
+    margin: auto;
+}
+
+/* ==========================================
+   1. Tablet View (平板视图)
+   触发点: 772px
+   目标: 一行两个 (宽度 45%)，限制图片高度
+   ========================================== */
+@media screen and (min-width: 772px) {
+    div {
+        display: inline-block; /* 允许元素并排显示 */
+        width: 45%;           /* 宽度 45% (加上间距刚好一行两个) */
+        vertical-align: top;   /* 确保对齐 */
+        margin: 1%;           /* 留出一点边距 */
+    }
+
+    div img {
+        width: auto;          /* 允许图片根据高度缩放 */
+        max-height: 30vh;     /* 步骤 1a: 图片高度不超过视口高度的 30% */
+    }
+}
+
+/* ==========================================
+   2. Large Screen View (大屏视图)
+   触发点: 998px
+   目标: 一行三个 (宽度 30%)
+   ========================================== */
+@media screen and (min-width: 998px) {
+    div {
+        width: 30%;           /* 步骤 2a: 宽度改为 30% (刚好一行三个) */
+        margin: 1%;
+    }
+    
+    /* 大屏下图片可以保持 tablet 的高度限制，或者根据需要调整 */
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+}
